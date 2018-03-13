@@ -39,7 +39,7 @@ def route(fin, fout):
 
 if __name__ == '__main__':
     outline = rectangle_with_mounting_holes(
-        20, 10, inset=1, hole_shift=2, hole_dia=1)
+        20, 10, inset=1, hole_shift=2, hole_drill=1)
 
     Builder(top(), outline=outline,
             pcb_attributes=oshpark_2layer(),
