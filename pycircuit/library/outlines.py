@@ -41,10 +41,13 @@ def sick_of_beige(name):
         'DP8080': (80, 80),
     }
 
-    width, height = lookup[name]
+    if name in lookup:
+        width, height = lookup[name]
+    else:
+        width, height = lookup['DP8080']    # default to biggest PCB
+
     inset = 1.7
     hole_shift = 4
     hole_dia = 3.2
 
-    return rectangle_with_mounting_holes(width=width, height=height, inset=inset,
-                                         hole_shift=hole_shift, hole_dia=hole_dia)
+    return rectangle_with_mounting_holes(width, height, inset, hole_shift, hole_dia)
