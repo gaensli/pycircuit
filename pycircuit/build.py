@@ -144,25 +144,13 @@ class Builder(object):
         return circuit
 
     def place(self):
-        netlist = Netlist.from_file(self.files['net_out'])
-        pcb = Pcb(netlist, self.outline, self.pcb_attributes)
-
-        self.step('net_out', 'place_in', lambda _, x: pcb.to_file(x))
-        self.step('place_in', 'place_out', self.place_hook)
-        pcb = self.load_pcb(place=True)
-        self.step('place_out', 'pcb_svg', lambda _, x: pcb.to_svg(x))
+        pass
 
     def route(self):
-        pcb = self.load_pcb(place=True)
-        self.step('place_out', 'route_in', lambda _, x: pcb.to_file(x))
-        self.step('route_in', 'route_out', self.route_hook)
-        pcb = self.load_pcb(place=True, route=True)
-        self.step('route_out', 'pcb_svg', lambda _, x: pcb.to_svg(x))
+        pass
 
     def post_process(self):
-        pcb = self.load_pcb(place=True, route=True)
-        kpcb = self.post_process_hook(pcb, pcb.to_kicad())
-        kpcb.to_file(self.files['kicad'])
+        pass
 
     def clean(self):
         shutil.rmtree(self.builddir)

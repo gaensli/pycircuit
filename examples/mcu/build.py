@@ -1,15 +1,12 @@
 from pycircuit.build import Builder
 from pycircuit.library.design_rules import oshpark_4layer
 from pycircuit.library.outlines import sick_of_beige
-from placer import Placer
 from pykicad.pcb import Zone
 from mcu import mcu
 
 
 def place(filein, fileout):
-    placer = Placer()
-    placer.place(filein, fileout)
-
+    pass
 
 def post_process(pcb, kpcb):
     xmin, ymin, xmax, ymax = pcb.outline.polygon.bounds

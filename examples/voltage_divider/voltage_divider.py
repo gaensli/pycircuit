@@ -2,9 +2,6 @@ from pycircuit.circuit import *
 from pycircuit.device import *
 from pycircuit.library import *
 from pycircuit.build import Builder
-from placer.place import Placer
-from router.router import Router
-
 
 Component('Connector', 'A connector', Pin('vin'), Pin('vout'), Pin('gnd'))
 Device('Connector', 'Connector', 'Pins_3x1',
@@ -28,14 +25,10 @@ def top(self):
 
 
 def place(fin, fout):
-    p = Placer()
-    p.place(fin, fout)
-
+    pass
 
 def route(fin, fout):
-    r = Router(grid_size=.5, maxflow_enforcement_level=3)
-    r.route(fin, fout)
-
+    pass
 
 if __name__ == '__main__':
     outline = rectangle_with_mounting_holes(

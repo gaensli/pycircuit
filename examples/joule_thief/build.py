@@ -2,8 +2,6 @@ import joule_thief
 from pycircuit.build import Builder
 from pycircuit.library.design_rules import oshpark_4layer
 from pycircuit.library.outlines import sick_of_beige
-from placer import Placer
-from router import Router
 from pykicad.pcb import Zone
 
 
@@ -26,13 +24,11 @@ def sim():
 
 
 def place(filein, fileout):
-    placer = Placer()
-    placer.place(filein, fileout)
+    pass
 
 
 def route(filein, fileout):
-    router = Router(maxflow_enforcement_level=2)
-    router.route(filein, fileout)
+    pass
 
 
 def post_process(pcb, kpcb):
