@@ -1,3 +1,4 @@
+from pycircuit.build import Builder
 from pycircuit.circuit import *
 from pycircuit.library import *
 
@@ -78,9 +79,4 @@ def mcu(self):
 
 
 if __name__ == '__main__':
-    from pycircuit.formats import *
-    from pycircuit.build import Builder
-
-    Builder(led()).compile()
-    Builder(rgb()).compile()
     Builder(mcu()).compile()

@@ -1,9 +1,9 @@
+from pycircuit.build import Builder
 from pycircuit.circuit import *
 from pycircuit.library import *
 
 
 def sallen_key(z1, z2, z3, z4, vcc, vee):
-
     @circuit('Sallen Key', 'gnd', '%s %s' % (vcc, vee), 'vin', 'vout')
     def sallen_key_topology(self, gnd, vcc, vee, vin, vout):
         n1, n2 = nets('n1 n2')
@@ -56,8 +56,4 @@ def top(self, gnd):
 
 
 if __name__ == '__main__':
-    from pycircuit.formats import *
-    from pycircuit.build import Builder
-
-    Builder(lp_sallen_key()).compile()
     Builder(top()).compile()

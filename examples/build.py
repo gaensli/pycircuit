@@ -1,8 +1,7 @@
 import os
 
-
 examplesdir = os.path.dirname(os.path.realpath(__file__))
-examples = ['common_emitter', 'joule_thief', 'mcu', 'sallen_key']
+projects = ['common_emitter', 'joule_thief', 'mcu', 'sallen_key', 'voltage_divider']
 
 
 def build_dir_path(example):
@@ -31,6 +30,6 @@ def open_svg(path):
 
 if __name__ == '__main__':
     clean('build')
-    for example in examples:
-        print('Building', example)
-        build(file_path(example, example + '.py'))
+    for project in projects:
+        print('Building', project)
+        build(file_path(project, project + '.py'))
