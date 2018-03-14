@@ -1,5 +1,4 @@
 from pycircuit.circuit import Circuit, Netlist
-from pycircuit.pcb import Pcb
 from pycircuit.formats import extends, _to_file, _to_json, _from_file
 
 
@@ -23,14 +22,3 @@ def to_file(self, path):
 @extends(Netlist)
 def from_file(path):
     return Netlist.from_object(_from_file(path))
-
-
-@extends(Pcb)
-def to_file(self, path):
-    _to_file(path, _to_json(self.to_object()))
-
-
-@staticmethod
-@extends(Pcb)
-def from_file(path):
-    return Pcb.from_object(_from_file(path))
