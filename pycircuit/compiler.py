@@ -232,7 +232,8 @@ class Compiler(object):
                 assign2 = assign
             swap(assign1, assign2)
 
-    def compile(self, net_in, net_out):
+    @staticmethod
+    def compile(net_in, net_out):
         circuit = Circuit.from_file(net_in)
 
         # Check insts

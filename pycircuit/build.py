@@ -25,16 +25,14 @@ class Builder(object):
             self.files[tag] = os.path.join(self.builddir, filename)
 
         self.circuit = circuit
-        compiler = Compiler()
-        self.compile_hook = compiler.compile
 
     def compile(self):
         if not os.path.exists(self.builddir):
             os.makedirs(self.builddir)
-            
+        
         self.circuit.to_file(self.files['net_in'])
         
-        circuit = self.compile_hook(self.files['net_in'], self.files['net_out'])
+        circuit = Compiler.compile(self.files['net_in'], self.files['net_out'])
         circuit.to_yosys_file(self.files['net_yosys'])
         
         netlistsvg(self.files['net_yosys'], self.files['net_svg'])
